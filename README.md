@@ -4,28 +4,39 @@
 [![Platforms](https://img.shields.io/badge/Platforms-iOS_macOS_watchOS_tvOS_visionOS-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-iOS_macOS_watchOS_tvOS_visionOS-Green?style=flat-square)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
 
-SwiftUI-Extension is a library written in Swift
+A collection of useful Swift extensions to simplify and enhance iOS/macOS development. This open-source project includes a variety of handy extensions for standard Swift types, UIKit, Foundation, and more. Each extension is crafted to save development time and improve code readability and reusability.
+
+## Table of Contents
 
 - [Features](#features)
-- [Component Libraries](#component-libraries)
-- [Requirements](#requirements)
-- [Migration Guides](#migration-guides)
-- [Communication](#communication)
 - [Installation](#installation)
+- [Usage](#usage)
+- [Extensions List](#extensions-list)
 - [Contributing](#contributing)
-- [Usage]()
-- [Open Radars](#open-radars)
-- [FAQ](#faq)
-- [Credits](#credits)
-- [Donations](#donations)
 - [License](#license)
 
 ## Features
 
-- [x] Views Extensions
-- [x]
+- **Core Extensions:** Add functionality to common Swift types such as `String`, `Array`, `Date`, and `Dictionary`.
+- **UIKit Extensions:** Simplify common UI tasks with extensions for `UIView`, `UIColor`, `UIImage`, and others.
+- **Foundation Extensions:** Convenient methods for `URL`, `DateFormatter`, `Data`, and other Foundation types.
+- **Lightweight and Modular:** Include only the extensions you need, making it easy to keep your project lightweight.
 
-## Component Libraries
+## Installation
+
+### Swift Package Manager
+
+To install using Swift Package Manager, add the following line to your `Package.swift` file:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/mjn2max/swift-extensions.git", from: "1.0.0")
+]
+```
+
+### Manually
+
+If you prefer not to use any of the aforementioned dependency managers, you can integrate Swift-Extensions into your project manually.
 
 ## Requirements
 
@@ -40,24 +51,6 @@ SwiftUI-Extension is a library written in Swift
 ## Migration Guides
 
 ## Communication
-
-## Installation
-
-### Swift Package Manager
-
-The [Swift Package Manager](https://swift.org/package-manager/) is a tool for automating the distribution of Swift code and is integrated into the `swift` compiler.
-
-Once you have your Swift package set up, adding SwiftUI-Extensions as a dependency is as easy as adding it to the `dependencies` value of your `Package.swift`.
-
-```swift
-dependencies: [
-    .package(url: "https://github.com/mjn2max/Swift-Extensions.git")
-]
-```
-
-### Manually
-
-If you prefer not to use any of the aforementioned dependency managers, you can integrate Swift-Extensions into your project manually.
 
 #### Embedded Framework
 
