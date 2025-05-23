@@ -1,15 +1,13 @@
 //
-// DoubleExtensions.swift
+// Double.swift
 // Swift-Extensions
 //
 // Created by Huy D. on 10/14/24
 // mjn2max.github.io 😜
 // 
 // Copyright © 2024. All rights reserved.
-// ___ORGANIZATIONNAME___
+// CodePassion.dev
 //
-
-import Foundation
 
 extension Double {
     func celsiusToFahrenheit() -> Double {
