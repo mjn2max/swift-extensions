@@ -65,6 +65,44 @@ public extension Double {
     var radiansToDegrees: Double { self * 180 / .pi }
 }
 
+// MARK: - Double Extensions - Return `String`
+
+public extension Double {
+    /// Formats the double as a localized currency string.
+    ///
+    /// - Parameter locale: Locale to use (default is current locale).
+    /// - Returns: Formatted currency string, or nil if formatting fails.
+    ///
+    /// Usage:
+    /// ```
+    /// let price = 1999.99
+    /// let formatted = price.asCurrency() // "$1,999.99" (depends on locale)
+    /// ```
+    func asCurrency(locale: Locale = .current) -> String? {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        formatter.locale = locale
+        return formatter.string(from: NSNumber(value: self))
+    }
+
+
+    /// Returns the value clamped to the given minimum and maximum values.
+    ///
+    /// - Parameters:
+    ///   - minValue: Minimum value.
+    ///   - maxValue: Maximum value.
+    /// - Returns: Clamped value.
+    ///
+    /// Usage:
+    /// ```
+    /// let temperature = 120.0
+    /// let safeTemp = temperature.clamped(min: 0, max: 100) // 100.0
+    /// ```
+    func clamped(min minValue: Double, max maxValue: Double) -> Double {
+        min(max(self, minValue), maxValue)
+    }
+}
+
 // MARK: - Double Extensions - Temperature
 
 public extension Double {
