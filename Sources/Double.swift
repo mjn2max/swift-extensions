@@ -65,6 +65,36 @@ public extension Double {
     var radiansToDegrees: Double { self * 180 / .pi }
 }
 
+// MARK: - Double Extensions - Temperature
+
+public extension Double {
+    /// Converts a Celsius value to Fahrenheit.
+    ///
+    /// - Returns: Fahrenheit value.
+    ///
+    /// Usage:
+    /// ```
+    /// let celsius = 25.0
+    /// let fahrenheit = celsius.celsiusToFahrenheit // 77.0
+    /// ```
+    var celsiusToFahrenheit: Double {
+        self * 9 / 5 + 32
+    }
+
+    /// Converts a Fahrenheit value to Celsius.
+    ///
+    /// - Returns: Celsius value.
+    ///
+    /// Usage:
+    /// ```
+    /// let fahrenheit = 77.0
+    /// let celsius = fahrenheit.fahrenheitToCelsius // 25.0
+    /// ```
+    var fahrenheitToCelsius: Double {
+        (self - 32) * 5 / 9
+    }
+}
+
 // MARK: - Double Extensions - Return `String`
 
 public extension Double {
@@ -100,17 +130,5 @@ public extension Double {
     /// ```
     func clamped(min minValue: Double, max maxValue: Double) -> Double {
         min(max(self, minValue), maxValue)
-    }
-}
-
-// MARK: - Double Extensions - Temperature
-
-public extension Double {
-    func celsiusToFahrenheit() -> Double {
-        return self * 9 / 5 + 32
-    }
-
-    func fahrenheitToCelsius() -> Double {
-        return (self - 32) * 5 / 9
     }
 }
