@@ -60,6 +60,33 @@ import SwiftExtensions
 
 ## Usage
 
+Swift-Extensions aims for “drop-in” convenience. Just import and use the new methods and computed properties:
+
+**Example 1: Rounding a Double**
+
+```swift
+let value = 3.14159
+let rounded = value.rounded(toPlaces: 2) // 3.14
+```
+
+**Example 2: String Trimming**
+
+```swift
+let text = "  Hello World  "
+let trimmed = text.trimmed() // "Hello World"
+```
+
+**Example 3: UIView Corner Radius**
+
+```swift
+let view = UIView()
+view.roundCorners(radius: 10)
+```
+
+More examples can be found in the [Extensions List](#extensions-list).
+
+## Extensions List
+
 ## Migration Guides
 
 ## Communication
