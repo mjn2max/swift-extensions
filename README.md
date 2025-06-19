@@ -13,7 +13,13 @@ A collection of useful Swift extensions to simplify and enhance iOS, macOS, watc
 - [Requirements](#requirements)
 - [Usage](#usage)
 - [Extensions List](#extensions-list)
+- [Migration Guides](#migration-guides)
+- [Communication](#communication)
 - [Contributing](#contributing)
+- [Open Radars](#open-radars)
+- [FAQs](#faqs)
+- [Credits](#credits)
+- [Donations](#donations)
 - [License](#license)
 
 ## Features
@@ -102,16 +108,32 @@ For a full list, browse the [Sources directory](/Sources/).
 
 ## Migration Guides
 
+Comming soon...
+
 ## Communication
+
+Comming soon...
 
 ## Contributing
 
+Comming soon...
+
 ## Open Radars
 
-## FAQ
+Comming soon...
+
+## FAQs
+
+Comming soon...
 
 ## Credits
 
+Comming soon...
+
 ## Donations
 
+Comming soon...
+
 ## License
+
+Comming soon...
