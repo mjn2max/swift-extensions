@@ -1,15 +1,16 @@
 # Swift-Extensions
 
-[![Swift](https://img.shields.io/badge/Swift-5.7_5.8_5.9-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.7_5.8_5.9-Orange?style=flat-square)
+[![Swift](https://img.shields.io/badge/Swift-5.x_6.x-orange?style=flat-square)](https://img.shields.io/badge/Swift-5.x_6.x-Orange?style=flat-square)
 [![Platforms](https://img.shields.io/badge/Platforms-iOS_macOS_watchOS_tvOS_visionOS-yellowgreen?style=flat-square)](https://img.shields.io/badge/Platforms-iOS_macOS_watchOS_tvOS_visionOS-Green?style=flat-square)
 [![Swift Package Manager](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)](https://img.shields.io/badge/Swift_Package_Manager-compatible-orange?style=flat-square)
 
-A collection of useful Swift extensions to simplify and enhance iOS/macOS development. This open-source project includes a variety of handy extensions for standard Swift types, UIKit, Foundation, and more. Each extension is crafted to save development time and improve code readability and reusability.
+A collection of useful Swift extensions to simplify and enhance iOS, macOS, watchOS, tvOS, and visionOS development. Each extension is crafted to save development time and improve code readability and reusability.
 
 ## Table of Contents
 
 - [Features](#features)
 - [Installation](#installation)
+- [Requirements](#requirements)
 - [Usage](#usage)
 - [Extensions List](#extensions-list)
 - [Contributing](#contributing)
@@ -17,10 +18,11 @@ A collection of useful Swift extensions to simplify and enhance iOS/macOS develo
 
 ## Features
 
-- **Core Extensions:** Add functionality to common Swift types such as `String`, `Array`, `Date`, and `Dictionary`.
-- **UIKit Extensions:** Simplify common UI tasks with extensions for `UIView`, `UIColor`, `UIImage`, and others.
+- **Core Extensions:** Add functionality to common Swift types such as `String`, `Array`, `Date`, `Dictionary`, and more.
+- **UIKit Extensions:** Simplify common UI tasks with extensions for `UIView`, `UIColor`, `UIImage`, etc.
 - **Foundation Extensions:** Convenient methods for `URL`, `DateFormatter`, `Data`, and other Foundation types.
-- **Lightweight and Modular:** Include only the extensions you need, making it easy to keep your project lightweight.
+- **Lightweight and Modular:** Include only the extensions you need, easy to keep your project lightweight.
+- **Modern Swift Support:** Designed for Swift 5.7 and above, leveraging the latest language features.
 
 ## Installation
 
@@ -34,9 +36,17 @@ dependencies: [
 ]
 ```
 
-### Manually
+Then import in your source files:
 
-If you prefer not to use any of the aforementioned dependency managers, you can integrate Swift-Extensions into your project manually.
+```swift
+import SwiftExtensions
+```
+
+### Manual Integration
+
+- Download or clone the repository.
+- Copy the Sources/SwiftExtensions folder into your Xcode project.
+- Use the extensions as you would any other Swift code.
 
 ## Requirements
 
@@ -48,11 +58,11 @@ If you prefer not to use any of the aforementioned dependency managers, you can 
 | tvOS        | Latest Only           | [Swift Package Manager](#swift-package-manager)                      | Not Fully Tested |
 | visionOS    | Latest Only           | [Swift Package Manager](#swift-package-manager)                      | Not Fully Tested |
 
+## Usage
+
 ## Migration Guides
 
 ## Communication
-
-#### Embedded Framework
 
 ## Contributing
 
