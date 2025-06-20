@@ -95,20 +95,25 @@ More examples can be found in the [Extensions List](#extensions-list).
 
 Here are some of the most popular extensions in this package:
 
-- `Double.swift`
-  - _rounded(toPlaces:):_ Round a double to a specified number of decimal places.
-  - _degreesToRadians/radiansToDegrees:_ Easy angle conversion.
-- `String.swift`
-  - _trimmed():_ Trims whitespace and newlines.
-  - _isNumeric:_ Checks if the string contains only numbers.
-- `Array.swift`
-  - _unique():_ Removes duplicate elements.
+`Double.swift`
+
+- _rounded(toPlaces:):_ Round a double to a specified number of decimal places.
+- _degreesToRadians/radiansToDegrees:_ Easy angle conversion.
+
+`String.swift`
+
+- _trimmed():_ Trims whitespace and newlines.
+- _isNumeric:_ Checks if the string contains only numbers.
+
+`Array.swift`
+
+- _unique():_ Removes duplicate elements.
 
 For a full list, browse the [Sources directory](/Sources/).
 
 ## Migration Guides
 
-Comming soon...
+Coming soon...
 
 ## Communication
 
