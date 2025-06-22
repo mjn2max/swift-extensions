@@ -12,7 +12,7 @@ A collection of useful Swift extensions to simplify and enhance iOS, macOS, watc
 - [Installation](#installation)
 - [Requirements](#requirements)
 - [Usage](#usage)
-- [Extensions List](#extensions-list)
+- [Extension List](#extension-list)
 - [Migration Guides](#migration-guides)
 - [Communication](#communication)
 - [Contributing](#contributing)
@@ -89,9 +89,9 @@ let view = UIView()
 view.roundCorners(radius: 10)
 ```
 
-More examples can be found in the [Extensions List](#extensions-list).
+More examples can be found in the [Extension List](#extension-list).
 
-## Extensions List
+## Extension List
 
 Here are some of the most popular extensions in this package:
 
