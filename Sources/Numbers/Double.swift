@@ -12,6 +12,7 @@
 import Foundation
 
 // MARK: - Double Extensions - Return `Bool`
+
 public extension Double {
     /// Returns `true` if the value has no fractional component (i.e., is mathematically an integer).
     ///
