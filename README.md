@@ -111,6 +111,8 @@ Here are some of the most popular extensions in this package:
 
 For a full list, browse the [Sources directory](/Sources/).
 
+The repository’s source folder structure is organized by category, following those in [Apple’s Foundation documentation](https://developer.apple.com/documentation/Foundation).
+
 ## Migration Guides
 
 Coming soon...
