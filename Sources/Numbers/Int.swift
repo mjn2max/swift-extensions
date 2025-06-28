@@ -27,6 +27,23 @@ extension Int {
     /// let isOddEven = oddNumber.isEven // false
     /// ```
     var isEven: Bool {
-        self % 2 == 0
+        self % 2 == .zero
+    }
+
+
+    /// Returns `true` if the integer is odd.
+    ///
+    /// - Returns: `true` if the value is odd, otherwise `false`.
+    ///
+    /// # Usage
+    /// ```
+    /// let number = 5
+    /// let isOdd = number.isOdd // true
+    ///
+    /// let evenNumber = 8
+    /// let isEvenOdd = evenNumber.isOdd // false
+    /// ```
+    var isOdd: Bool {
+        self % 2 != .zero
     }
 }
