@@ -59,3 +59,20 @@ extension Collection {
         return result
     }
 }
+
+extension Collection {
+    /// Returns the element at the specified index if it is within bounds, otherwise nil.
+    ///
+    /// - Parameter index: The index of the element to retrieve.
+    /// - Returns: The element at `index` if it exists, otherwise `nil`.
+    ///
+    /// # Usage
+    /// ```
+    /// let array = ["a", "b", "c"]
+    /// let value = array[safe: 2] // "c"
+    /// let missing = array[safe: 3] // nil
+    /// ```
+    subscript(safe index: Index) -> Element? {
+        return indices.contains(index) ? self[index] : nil
+    }
+}
