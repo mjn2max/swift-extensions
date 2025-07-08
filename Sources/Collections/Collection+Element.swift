@@ -46,4 +46,18 @@ extension Collection {
         }
         return nil
     }
+
+
+    /// Returns the middle element of the collection, or nil if the collection is empty.
+    ///
+    /// # Usage
+    /// ```
+    /// let values = [1, 2, 3, 4, 5]
+    /// let middle = values.middleElement() // 3
+    /// ```
+    func middleElement() -> Element? {
+        guard !isEmpty else { return nil }
+        let midIndex = index(startIndex, offsetBy: count / 2)
+        return self[midIndex]
+    }
 }
