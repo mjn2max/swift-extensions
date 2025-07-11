@@ -25,4 +25,19 @@ extension Collection where Element: Hashable {
         let unique = Set(self)
         return Array(unique)
     }
+
+
+    /// Returns a dictionary where the keys are the unique elements of the collection
+    /// and the values are the number of times each element appears.
+    ///
+    /// # Usage
+    /// ```
+    /// let items = ["apple", "banana", "apple", "orange", "banana", "apple"]
+    /// let frequencies = items.frequencies() // ["apple": 3, "banana": 2, "orange": 1]
+    /// ```
+    func frequencies() -> [Element: Int] {
+        reduce(into: [:]) { counts, item in
+            counts[item, default: 0] += 1
+        }
+    }
 }
