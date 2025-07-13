@@ -55,4 +55,20 @@ extension Collection where Element: Hashable {
             counts[item, default: 0] += 1
         }
     }
+
+    
+    /// Returns the most frequent element in the collection and its frequency.
+    ///
+    /// # Usage
+    /// ```
+    /// let items = ["apple", "banana", "apple", "orange", "banana", "apple"]
+    /// let mostCommon = items.mostFrequent() // ("apple", 3)
+    /// ```
+    func mostFrequent() -> (element: Element, count: Int)? {
+        let frequencyMap = self.frequencies()
+        if let (key, value) = frequencyMap.max(by: { $0.value < $1.value }) {
+            return (element: key, count: value)
+        }
+        return nil
+    }
 }
