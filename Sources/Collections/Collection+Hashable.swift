@@ -12,6 +12,21 @@
 // MARK: - Collection Extensions
 
 extension Collection where Element: Hashable {
+    /// Returns a Boolean value indicating whether all elements in the collection are unique.
+    ///
+    /// # Usage
+    /// ```
+    /// let values = [1, 2, 3, 4, 5]
+    /// let isAllUnique = values.allUnique() // true
+    ///
+    /// let duplicates = [1, 2, 2, 3]
+    /// let isAllUnique2 = duplicates.allUnique() // false
+    /// ```
+    func allUnique() -> Bool {
+        Set(self).count == count
+    }
+
+
     /// Returns an array with duplicate elements removed, preserving the unique elements from the original collection.
     ///
     /// - Returns: An array containing only the unique elements from the collection.
