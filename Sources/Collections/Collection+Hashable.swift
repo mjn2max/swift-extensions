@@ -42,18 +42,22 @@ extension Collection where Element: Hashable {
     }
 
 
-    /// Returns a Boolean value indicating whether all elements in the collection are unique.
+    /// Returns an array of elements that appear more than once in the collection.
     ///
     /// # Usage
     /// ```
-    /// let values = [1, 2, 3, 4, 5]
-    /// let isAllUnique = values.allUnique() // true
-    ///
-    /// let duplicates = [1, 2, 2, 3]
-    /// let isAllUnique2 = duplicates.allUnique() // false
+    /// let items = ["apple", "banana", "apple", "orange", "banana", "apple"]
+    /// let duplicates = items.duplicates() // ["apple", "banana"]
     /// ```
-    func allUnique() -> Bool {
-        Set(self).count == count
+    func duplicates() -> [Element] {
+        var seen = Set<Element>()
+        var duplicates = Set<Element>()
+        for item in self {
+            if !seen.insert(item).inserted {
+                duplicates.insert(item)
+            }
+        }
+        return Array(duplicates)
     }
 
 
@@ -71,7 +75,7 @@ extension Collection where Element: Hashable {
         }
     }
 
-    
+
     /// Returns the most frequent element in the collection and its frequency.
     ///
     /// # Usage
