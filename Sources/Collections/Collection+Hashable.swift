@@ -90,4 +90,20 @@ extension Collection where Element: Hashable {
         }
         return nil
     }
+
+    
+    /// Returns the least frequent element in the collection and its frequency.
+    ///
+    /// # Usage
+    /// ```
+    /// let items = ["apple", "banana", "apple", "orange", "banana", "banana"]
+    /// let leastCommon = items.leastFrequent() // ("orange", 1)
+    /// ```
+    func leastFrequent() -> (element: Element, count: Int)? {
+        let frequencyMap = self.frequencies()
+        if let (key, value) = frequencyMap.min(by: { $0.value < $1.value }) {
+            return (element: key, count: value)
+        }
+        return nil
+    }
 }
