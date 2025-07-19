@@ -91,7 +91,7 @@ extension Collection where Element: Hashable {
         return nil
     }
 
-    
+
     /// Returns the least frequent element in the collection and its frequency.
     ///
     /// # Usage
@@ -105,5 +105,23 @@ extension Collection where Element: Hashable {
             return (element: key, count: value)
         }
         return nil
+    }
+
+
+    /// Groups elements in the collection by their frequency count.
+    ///
+    /// # Usage
+    /// ```
+    /// let items = ["apple", "banana", "apple", "orange", "banana", "banana"]
+    /// let groupedByFrequency = items.groupedByFrequency()
+    /// // [1: ["orange"], 2: ["apple"], 3: ["banana"]]
+    /// ```
+    func groupedByFrequency() -> [Int: [Element]] {
+        let frequencyMap = frequencies()
+        var result: [Int: [Element]] = [:]
+        for (element, count) in frequencyMap {
+            result[count, default: []].append(element)
+        }
+        return result
     }
 }
