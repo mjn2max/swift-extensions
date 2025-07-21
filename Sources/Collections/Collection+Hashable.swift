@@ -124,4 +124,22 @@ extension Collection where Element: Hashable {
         }
         return result
     }
+
+
+    /// Returns the top N most frequent elements and their counts, sorted by frequency descending.
+    ///
+    /// - Parameter n: The maximum number of elements to return.
+    /// - Returns: An array of tuples containing the element and its frequency.
+    ///
+    /// # Usage
+    /// ```
+    /// let items = ["a", "b", "a", "c", "b", "a", "d"]
+    /// let top2 = items.topFrequent(2) // [("a", 3), ("b", 2)]
+    /// ```
+    func topFrequent(_ n: Int) -> [(element: Element, count: Int)] {
+        frequencies()
+            .sorted(by: { $0.value > $1.value })
+            .prefix(n)
+            .map { (element: $0.key, count: $0.value) }
+    }
 }
