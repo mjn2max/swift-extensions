@@ -42,6 +42,18 @@ extension Collection where Element: Hashable {
     }
 
 
+    /// Returns a Boolean value indicating whether the collection contains any duplicate elements.
+    ///
+    /// # Usage
+    /// ```
+    /// let values = [1, 2, 3, 2]
+    /// let hasDupes = values.hasDuplicates() // true
+    /// ```
+    func hasDuplicates() -> Bool {
+        return Set(self).count != count
+    }
+
+
     /// Returns an array of elements that appear more than once in the collection.
     ///
     /// # Usage
@@ -142,4 +154,6 @@ extension Collection where Element: Hashable {
             .prefix(n)
             .map { (element: $0.key, count: $0.value) }
     }
+
+    
 }
