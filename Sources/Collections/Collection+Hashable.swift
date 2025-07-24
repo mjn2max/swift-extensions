@@ -120,6 +120,22 @@ extension Collection where Element: Hashable {
     }
 
 
+    /// Returns an array of tuples containing each element and its percentage frequency.
+    ///
+    /// # Usage
+    /// ```
+    /// let items = ["a", "b", "a", "c", "b", "a"]
+    /// let percentage = items.frequencyPercentage()
+    /// // [("a", 50.0), ("b", 33.33), ("c", 16.67)]
+    /// ```
+    func frequencyPercentage() -> [(element: Element, percentage: Double)] {
+        let total = Double(count)
+        guard total > 0 else { return [] }
+        return frequencies().map { (element: $0.key, percentage: (Double($0.value) / total) * 100) }
+            .sorted { $0.percentage > $1.percentage }
+    }
+
+
     /// Groups elements in the collection by their frequency count.
     ///
     /// # Usage
@@ -154,6 +170,4 @@ extension Collection where Element: Hashable {
             .prefix(n)
             .map { (element: $0.key, count: $0.value) }
     }
-
-    
 }
