@@ -138,6 +138,24 @@ extension Collection where Element: Hashable {
     }
 
 
+    /// Returns the bottom N least frequent elements and their counts, sorted by frequency ascending.
+    ///
+    /// - Parameter n: The maximum number of elements to return.
+    /// - Returns: An array of tuples containing the element and its frequency.
+    ///
+    /// # Usage
+    /// ```
+    /// let items = ["a", "b", "a", "c", "b", "a", "d"]
+    /// let bottom2 = items.leastFrequent(n: 2) // [("c", 1), ("d", 1)]
+    /// ```
+    func leastFrequent(n: Int) -> [(element: Element, count: Int)] {
+        frequencies()
+            .sorted(by: { $0.value < $1.value })
+            .prefix(n)
+            .map { (element: $0.key, count: $0.value) }
+    }
+
+
     /// Returns an array of tuples containing each element and its percentage frequency.
     ///
     /// # Usage
