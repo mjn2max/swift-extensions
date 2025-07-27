@@ -28,6 +28,21 @@ public extension Date {
     }
 
 
+    /// Returns a new `Date` representing the end of the day (23:59:59) in the current calendar.
+    ///
+    /// - Returns: A new `Date` representing the last moment of the same day.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let endOfToday = now.endOfDay
+    /// ```
+    var endOfDay: Date? {
+        var components = DateComponents(day: 1, second: -1)
+        return Calendar.current.date(byAdding: components, to: startOfDay)
+    }
+
+
     /// Returns a new `Date` by adding the specified number of days.
     ///
     /// - Parameter days: The number of days to add (negative to subtract).
