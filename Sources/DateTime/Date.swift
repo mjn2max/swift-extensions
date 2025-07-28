@@ -42,6 +42,21 @@ public extension Date {
         return Calendar.current.date(byAdding: components, to: startOfDay)
     }
 
+    
+    /// Returns a new `Date` representing the start of the month (00:00:00 on the first day) in the current calendar.
+    ///
+    /// - Returns: A new `Date` representing the beginning of the month.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let startOfMonth = now.startOfMonth
+    /// ```
+    var startOfMonth: Date? {
+        let components = Calendar.current.dateComponents([.year, .month], from: self)
+        return Calendar.current.date(from: components)
+    }
+
 
     /// Returns a new `Date` by adding the specified number of days.
     ///
