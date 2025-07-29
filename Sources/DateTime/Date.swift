@@ -38,11 +38,11 @@ public extension Date {
     /// let endOfToday = now.endOfDay
     /// ```
     var endOfDay: Date? {
-        var components = DateComponents(day: 1, second: -1)
+        let components = DateComponents(day: 1, second: -1)
         return Calendar.current.date(byAdding: components, to: startOfDay)
     }
 
-    
+
     /// Returns a new `Date` representing the start of the month (00:00:00 on the first day) in the current calendar.
     ///
     /// - Returns: A new `Date` representing the beginning of the month.
@@ -55,6 +55,23 @@ public extension Date {
     var startOfMonth: Date? {
         let components = Calendar.current.dateComponents([.year, .month], from: self)
         return Calendar.current.date(from: components)
+    }
+
+
+    /// Returns a new `Date` representing the end of the month (23:59:59 on the last day) in the current calendar.
+    ///
+    /// - Returns: A new `Date` representing the final moment of the month.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let endOfMonth = now.endOfMonth
+    /// ```
+    var endOfMonth: Date? {
+        guard let startOfNextMonth = Calendar.current.date(byAdding: DateComponents(month: 1), to: startOfMonth ?? self) else {
+            return nil
+        }
+        return Calendar.current.date(byAdding: DateComponents(second: -1), to: Calendar.current.startOfDay(for: startOfNextMonth))
     }
 
 
