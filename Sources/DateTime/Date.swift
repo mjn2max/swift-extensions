@@ -43,6 +43,22 @@ public extension Date {
     }
 
 
+    /// Returns a new `Date` representing the start of the week in the current calendar.
+    ///
+    /// - Returns: A `Date` for the beginning of the week (e.g., Sunday or Monday depending on locale).
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let start = now.startOfWeek
+    /// ```
+    var startOfWeek: Date? {
+        let calendar = Calendar.current
+        let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
+        return calendar.date(from: components)
+    }
+
+
     /// Returns a new `Date` representing the start of the month (00:00:00 on the first day) in the current calendar.
     ///
     /// - Returns: A new `Date` representing the beginning of the month.
