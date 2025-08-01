@@ -59,6 +59,22 @@ public extension Date {
     }
 
 
+    /// Returns a new `Date` representing the end of the week (23:59:59 on the last day) in the current calendar.
+    ///
+    /// - Returns: A `Date` for the final moment of the week (e.g., Saturday or Sunday depending on locale).
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let end = now.endOfWeek
+    /// ```
+    var endOfWeek: Date? {
+        guard let start = startOfWeek else { return nil }
+        let components = DateComponents(day: 7, second: -1)
+        return Calendar.current.date(byAdding: components, to: start)
+    }
+
+
     /// Returns a new `Date` representing the start of the month (00:00:00 on the first day) in the current calendar.
     ///
     /// - Returns: A new `Date` representing the beginning of the month.
