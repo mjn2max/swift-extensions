@@ -29,4 +29,16 @@ extension CGFloat {
         let factor = pow(10.0, CGFloat(places))
         return (self * factor).rounded() / factor
     }
+
+    
+    /// Converts the value from degrees to radians.
+    ///
+    /// # Usage
+    /// ```
+    /// let degrees: CGFloat = 180
+    /// let radians = degrees.toRadians // π
+    /// ```
+    var toRadians: CGFloat {
+        return self * .pi / 180
+    }
 }
