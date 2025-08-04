@@ -30,7 +30,7 @@ extension CGFloat {
         return (self * factor).rounded() / factor
     }
 
-    
+
     /// Converts the value from degrees to radians.
     ///
     /// # Usage
@@ -40,5 +40,17 @@ extension CGFloat {
     /// ```
     var toRadians: CGFloat {
         return self * .pi / 180
+    }
+
+
+    /// Converts the value from radians to degrees.
+    ///
+    /// # Usage
+    /// ```
+    /// let radians: CGFloat = .pi
+    /// let degrees = radians.toDegrees // 180
+    /// ```
+    var toDegrees: CGFloat {
+        return self * 180 / .pi
     }
 }
