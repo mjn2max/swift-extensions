@@ -53,4 +53,16 @@ extension CGFloat {
     var toDegrees: CGFloat {
         return self * 180 / .pi
     }
+
+    
+    /// Returns the absolute value of the CGFloat.
+    ///
+    /// # Usage
+    /// ```
+    /// let value: CGFloat = -42.5
+    /// let absolute = value.abs // 42.5
+    /// ```
+    var abs: CGFloat {
+        return Swift.abs(self)
+    }
 }
