@@ -25,8 +25,8 @@ extension String {
         let pattern = #"^[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$"#
         return range(of: pattern, options: .regularExpression) != nil
     }
-    
-    
+
+
     /// Returns a Boolean value indicating whether the string contains only numeric characters.
     ///
     /// # Usage
@@ -37,5 +37,16 @@ extension String {
     var isNumeric: Bool {
         return !isEmpty && allSatisfy { $0.isNumber }
     }
-    
+
+
+    /// Returns a Boolean value indicating whether the string contains only alphabetic characters.
+    ///
+    /// # Usage
+    /// ```
+    /// let input = "HelloWorld"
+    /// let isAlpha = input.isAlphabetic // true
+    /// ```
+    var isAlphabetic: Bool {
+        return !isEmpty && allSatisfy { $0.isLetter }
+    }
 }
