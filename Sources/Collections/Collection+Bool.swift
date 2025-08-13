@@ -30,4 +30,16 @@ extension Collection {
         }
         return true
     }
+
+
+    /// Returns a Boolean value indicating whether the collection contains only the specified element.
+    ///
+    /// # Usage
+    /// ```
+    /// let allZeros = [0, 0, 0].containsOnly(0) // true
+    /// let mixed = [0, 1, 0].containsOnly(0) // false
+    /// ```
+    func containsOnly(_ element: Element) -> Bool where Element: Equatable {
+        return allSatisfy { $0 == element }
+    }
 }
