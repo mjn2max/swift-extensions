@@ -49,4 +49,16 @@ extension String {
     var isAlphabetic: Bool {
         return !isEmpty && allSatisfy { $0.isLetter }
     }
+
+
+    /// Returns a Boolean value indicating whether the string contains only alphanumeric characters.
+    ///
+    /// # Usage
+    /// ```
+    /// let input = "abc123"
+    /// let isAlphanumeric = input.isAlphanumeric // true
+    /// ```
+    var isAlphanumeric: Bool {
+        return !isEmpty && allSatisfy { $0.isLetter || $0.isNumber }
+    }
 }
