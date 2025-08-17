@@ -35,11 +35,24 @@ extension Collection {
                 chunk.removeAll(keepingCapacity: true)
             }
         }
-
+        
         if !chunk.isEmpty {
             result.append(chunk)
         }
 
         return result
+    }
+
+
+    /// Returns a new array with duplicate elements removed, preserving order.
+    ///
+    /// # Usage
+    /// ```
+    /// let items = [1, 2, 2, 3, 1]
+    /// let unique = items.uniqued() // [1, 2, 3]
+    /// ```
+    func uniqued<T: Hashable>() -> [T] where Element == T {
+        var seen = Set<T>()
+        return filter { seen.insert($0).inserted }
     }
 }
