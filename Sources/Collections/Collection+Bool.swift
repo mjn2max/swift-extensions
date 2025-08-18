@@ -4,7 +4,7 @@
 //
 // Created by Huy D. on 7/6/25
 // mjn2max.github.io 😜
-// 
+//
 // Copyright © 2025. All rights reserved.
 // CodePassion.dev
 //
@@ -41,5 +41,24 @@ extension Collection {
     /// ```
     func containsOnly(_ element: Element) -> Bool where Element: Equatable {
         return allSatisfy { $0 == element }
+    }
+
+    
+    /// Returns a Boolean value indicating whether the collection contains any elements that match the given predicate.
+    ///
+    /// - Parameter predicate: A closure that takes an element of the collection as its argument and returns a Boolean value.
+    /// - Returns: `true` if any elements satisfy the predicate; otherwise, `false`.
+    ///
+    /// # Usage
+    /// ```
+    /// let hasEven = [1, 3, 5, 6].contains(where: { $0 % 2 == 0 }) // true
+    /// ```
+    func contains(where predicate: (Element) -> Bool) -> Bool {
+        for element in self {
+            if predicate(element) {
+                return true
+            }
+        }
+        return false
     }
 }
