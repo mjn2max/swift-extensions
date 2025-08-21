@@ -106,18 +106,18 @@ public extension Date {
         return Calendar.current.date(byAdding: DateComponents(second: -1), to: Calendar.current.startOfDay(for: startOfNextMonth))
     }
 
-
-    /// Returns a new `Date` by adding the specified number of days.
+    
+    /// Returns the start of the year (January 1st at 00:00:00) for this date.
     ///
-    /// - Parameter days: The number of days to add (negative to subtract).
-    /// - Returns: A new `Date` offset by the given number of days, or `nil` if the calculation fails.
+    /// - Returns: A new `Date` representing the beginning of the year.
     ///
     /// # Usage
     /// ```
-    /// let today = Date()
-    /// let nextWeek = today.addingDays(7)
+    /// let now = Date()
+    /// let startOfYear = now.startOfYear
     /// ```
-    func addingDays(_ days: Int) -> Date? {
-        Calendar.current.date(byAdding: .day, value: days, to: self)
+    var startOfYear: Date? {
+        let components = Calendar.current.dateComponents([.year], from: self)
+        return Calendar.current.date(from: components)
     }
 }
