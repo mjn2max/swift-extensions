@@ -106,7 +106,7 @@ public extension Date {
         return Calendar.current.date(byAdding: DateComponents(second: -1), to: Calendar.current.startOfDay(for: startOfNextMonth))
     }
 
-    
+
     /// Returns the start of the year (January 1st at 00:00:00) for this date.
     ///
     /// - Returns: A new `Date` representing the beginning of the year.
@@ -119,5 +119,22 @@ public extension Date {
     var startOfYear: Date? {
         let components = Calendar.current.dateComponents([.year], from: self)
         return Calendar.current.date(from: components)
+    }
+
+
+    /// Returns a new `Date` representing the end of the year (December 31st at 23:59:59) in the current calendar.
+    ///
+    /// - Returns: A new `Date` representing the final moment of the year.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let endOfYear = now.endOfYear
+    /// ```
+    var endOfYear: Date? {
+        guard let startOfNextYear = Calendar.current.date(byAdding: DateComponents(year: 1), to: startOfYear ?? self) else {
+            return nil
+        }
+        return Calendar.current.date(byAdding: DateComponents(second: -1), to: Calendar.current.startOfDay(for: startOfNextYear))
     }
 }
