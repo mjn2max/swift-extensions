@@ -4,7 +4,7 @@
 //
 // Created by Huy D. on 8/21/25
 // mjn2max.github.io 😜
-// 
+//
 // Copyright © 2025. All rights reserved.
 // CodePassion.dev
 //
@@ -27,4 +27,22 @@ public extension Date {
     func addingDays(_ days: Int) -> Date? {
         Calendar.current.date(byAdding: .day, value: days, to: self)
     }
+
+
+    /// Finds the next occurrence of the specified weekday after the current date.
+    ///
+    /// - Parameter weekday: The weekday to find (1 = Sunday, 2 = Monday, ..., 7 = Saturday).
+    /// - Returns: The next `Date` matching the specified weekday, or `nil` if not found.
+    ///
+    /// # Usage
+    /// ```
+    /// let today = Date()
+    /// let nextMonday = today.next(2)
+    /// ```
+    func next(_ weekday: Int) -> Date? {
+        var components = DateComponents()
+        components.weekday = weekday
+        return Calendar.current.nextDate(after: self, matching: components, matchingPolicy: .nextTime)
+    }
+}
 }
