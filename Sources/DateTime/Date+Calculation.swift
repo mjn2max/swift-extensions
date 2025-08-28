@@ -28,7 +28,7 @@ public extension Date {
         Calendar.current.date(byAdding: .day, value: days, to: self)
     }
 
-
+    
     /// Finds the next occurrence of the specified weekday after the current date.
     ///
     /// - Parameter weekday: The weekday to find (1 = Sunday, 2 = Monday, ..., 7 = Saturday).
@@ -43,6 +43,25 @@ public extension Date {
         var components = DateComponents()
         components.weekday = weekday
         return Calendar.current.nextDate(after: self, matching: components, matchingPolicy: .nextTime)
+    }
+
+
+    /// Calculates the number of days between this date and another date.
+    ///
+    /// - Parameter date: The date to compare with.
+    /// - Returns: The number of days between the two dates (can be negative).
+    ///
+    /// # Usage
+    /// ```
+    /// let start = Date()
+    /// let end = start.addingDays(3)!
+    /// let diff = start.daysBetween(end) // 3
+    /// ```
+    func daysBetween(_ date: Date) -> Int {
+        let calendar = Calendar.current
+        let start = calendar.startOfDay(for: self)
+        let end = calendar.startOfDay(for: date)
+        return calendar.dateComponents([.day], from: start, to: end).day ?? 0
     }
 }
 }
