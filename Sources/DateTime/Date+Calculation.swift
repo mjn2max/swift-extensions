@@ -64,4 +64,3 @@ public extension Date {
         return calendar.dateComponents([.day], from: start, to: end).day ?? 0
     }
 }
-}
