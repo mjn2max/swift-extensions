@@ -4,7 +4,7 @@
 //
 // Created by Huy D. on 8/30/25
 // mjn2max.github.io 😜
-// 
+//
 // Copyright © 2025. All rights reserved.
 // CodePassion.dev
 //
@@ -23,10 +23,29 @@ extension Date {
     /// ```
     /// let now = Date()
     /// let formatted = now.formatted("yyyy-MM-dd")
+    /// > sample result: "2025-08-30"
     /// ```
     func formatted(_ format: String) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+
+    /// Formats the date in a localized style (short, medium, long, full).
+    ///
+    /// - Parameter style: The date style to use (default: .medium).
+    /// - Returns: A string representation of the date in the given style.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let formatted = now.formatted(style: .long)
+    /// > sample result: "August 30, 2025"
+    /// ```
+    func formatted(style: DateFormatter.Style = .medium) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = style
+        formatter.timeStyle = .none
         return formatter.string(from: self)
     }
 }
