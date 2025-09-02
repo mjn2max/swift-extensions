@@ -48,4 +48,24 @@ extension Date {
         formatter.timeStyle = .none
         return formatter.string(from: self)
     }
+
+    /// Formats the date using the provided date and time styles.
+    ///
+    /// - Parameters:
+    ///   - dateStyle: The date style to use (default: .medium).
+    ///   - timeStyle: The time style to use (default: .short).
+    /// - Returns: A string representation of the date and time in the given styles.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let formatted = now.formatted(dateStyle: .short, timeStyle: .medium)
+    /// > sample result: "8/30/25, 12:34 PM"
+    /// ```
+    func formatted(dateStyle: DateFormatter.Style = .medium, timeStyle: DateFormatter.Style = .short) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = dateStyle
+        formatter.timeStyle = timeStyle
+        return formatter.string(from: self)
+    }
 }
