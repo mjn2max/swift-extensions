@@ -68,4 +68,19 @@ extension Date {
         formatter.timeStyle = timeStyle
         return formatter.string(from: self)
     }
+
+    /// Returns an ISO 8601 string representation of the date.
+    ///
+    /// - Returns: A string in ISO 8601 format representing the date.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let isoString = now.iso8601String()
+    /// > sample result: "2025-08-30T12:34:56Z"
+    /// ```
+    func iso8601String() -> String {
+        let formatter = ISO8601DateFormatter()
+        return formatter.string(from: self)
+    }
 }
