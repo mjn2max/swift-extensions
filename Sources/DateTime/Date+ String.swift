@@ -83,4 +83,20 @@ extension Date {
         let formatter = ISO8601DateFormatter()
         return formatter.string(from: self)
     }
+
+    /// Returns a relative string like "today", "yesterday", or "in 2 days".
+    ///
+    /// - Returns: A string describing the date relative to now.
+    ///
+    /// # Usage
+    /// ```
+    /// let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: Date())!
+    /// let description = yesterday.relativeDescription()
+    /// > sample result: "yesterday"
+    /// ```
+    func relativeDescription() -> String {
+        let formatter = RelativeDateTimeFormatter()
+        formatter.unitsStyle = .full
+        return formatter.localizedString(for: self, relativeTo: Date())
+    }
 }
