@@ -99,4 +99,22 @@ extension Date {
         formatter.unitsStyle = .full
         return formatter.localizedString(for: self, relativeTo: Date())
     }
+
+    /// Returns the full name of the weekday for the date (e.g., "Monday").
+    ///
+    /// - Parameter locale: The locale to use for formatting (default: current locale).
+    /// - Returns: The full weekday name as a string.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let weekday = now.weekdayName()
+    /// > sample result: "Saturday"
+    /// ```
+    func weekdayName(locale: Locale = .current) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = locale
+        formatter.dateFormat = "EEEE"
+        return formatter.string(from: self)
+    }
 }
