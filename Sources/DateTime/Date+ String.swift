@@ -117,4 +117,22 @@ extension Date {
         formatter.dateFormat = "EEEE"
         return formatter.string(from: self)
     }
+
+    /// Returns the full name of the month for the date (e.g., "August").
+    ///
+    /// - Parameter locale: The locale to use for formatting (default: current locale).
+    /// - Returns: The full month name as a string.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let month = now.monthName()
+    /// > sample result: "August"
+    /// ```
+    func monthName(locale: Locale = .current) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = locale
+        formatter.dateFormat = "LLLL"
+        return formatter.string(from: self)
+    }
 }
