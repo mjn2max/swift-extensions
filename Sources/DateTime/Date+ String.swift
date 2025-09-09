@@ -135,4 +135,20 @@ extension Date {
         formatter.dateFormat = "LLLL"
         return formatter.string(from: self)
     }
+
+    /// Returns the year component of the date as a string.
+    ///
+    /// - Returns: The year of the date as a four-digit string.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let year = now.yearString()
+    /// > sample result: "2025"
+    /// ```
+    func yearString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy"
+        return formatter.string(from: self)
+    }
 }
