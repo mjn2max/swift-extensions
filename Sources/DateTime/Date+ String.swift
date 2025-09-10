@@ -151,4 +151,20 @@ extension Date {
         formatter.dateFormat = "yyyy"
         return formatter.string(from: self)
     }
+
+    /// Returns the day of the month component of the date as a string.
+    ///
+    /// - Returns: The day of the month as a string (e.g., "05").
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let day = now.dayString()
+    /// > sample result: "30"
+    /// ```
+    func dayString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd"
+        return formatter.string(from: self)
+    }
 }
