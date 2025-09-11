@@ -167,4 +167,22 @@ extension Date {
         formatter.dateFormat = "dd"
         return formatter.string(from: self)
     }
+
+    /// Returns the time of the date as a string using the specified style.
+    ///
+    /// - Parameter style: The time style to use (default: .short).
+    /// - Returns: A string representation of the time.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let time = now.timeString(style: .medium)
+    /// > sample result: "12:34:56 PM"
+    /// ```
+    func timeString(style: DateFormatter.Style = .short) -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .none
+        formatter.timeStyle = style
+        return formatter.string(from: self)
+    }
 }
