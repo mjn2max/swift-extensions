@@ -185,4 +185,22 @@ extension Date {
         formatter.timeStyle = style
         return formatter.string(from: self)
     }
+
+    /// Returns the abbreviated month name of the date (e.g., "Aug").
+    ///
+    /// - Parameter locale: The locale to use for formatting (default: current locale).
+    /// - Returns: The abbreviated month name as a string.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let shortMonth = now.shortMonthName()
+    /// > sample result: "Aug"
+    /// ```
+    func shortMonthName(locale: Locale = .current) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = locale
+        formatter.dateFormat = "MMM"
+        return formatter.string(from: self)
+    }
 }
