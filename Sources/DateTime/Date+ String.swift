@@ -203,4 +203,22 @@ extension Date {
         formatter.dateFormat = "MMM"
         return formatter.string(from: self)
     }
+
+    /// Returns the abbreviated weekday name of the date (e.g., "Mon").
+    ///
+    /// - Parameter locale: The locale to use for formatting (default: current locale).
+    /// - Returns: The abbreviated weekday name as a string.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let shortWeekday = now.shortWeekdayName()
+    /// > sample result: "Sat"
+    /// ```
+    func shortWeekdayName(locale: Locale = .current) -> String {
+        let formatter = DateFormatter()
+        formatter.locale = locale
+        formatter.dateFormat = "E"
+        return formatter.string(from: self)
+    }
 }
