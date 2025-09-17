@@ -65,4 +65,22 @@ extension CGFloat {
     var abs: CGFloat {
         return Swift.abs(self)
     }
+    
+    
+    /// Returns the value clamped to the given closed range.
+    ///
+    /// - Parameter limits: The closed range to clamp the value to.
+    /// - Returns: A CGFloat within the specified range.
+    ///
+    /// # Usage
+    /// ```
+    /// let value: CGFloat = 15
+    /// let clamped = value.clamped(to: 0...10) // 10
+    /// ```
+    func clamped(to limits: ClosedRange<CGFloat>) -> CGFloat {
+        if self < limits.lowerBound { return limits.lowerBound }
+        if self > limits.upperBound { return limits.upperBound }
+        return self
+    }
 }
+
