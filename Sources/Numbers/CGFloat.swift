@@ -82,5 +82,23 @@ extension CGFloat {
         if self > limits.upperBound { return limits.upperBound }
         return self
     }
+    
+    
+    /// Linearly interpolates from the current value to a target value by a given progress amount.
+    ///
+    /// - Parameters:
+    ///   - to: The target value to interpolate towards.
+    ///   - progress: The interpolation factor in the range `[0, 1]` where `0` returns `self` and `1` returns `to`.
+    /// - Returns: The interpolated `CGFloat`.
+    ///
+    /// # Usage
+    /// ```
+    /// let start: CGFloat = 0
+    /// let end: CGFloat = 10
+    /// let mid = start.lerp(to: end, progress: 0.5) // 5
+    /// ```
+    func lerp(to: CGFloat, progress: CGFloat) -> CGFloat {
+        let t = progress.clamped(to: 0...1)
+        return self + (to - self) * t
+    }
 }
-
