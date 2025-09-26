@@ -101,4 +101,20 @@ extension CGFloat {
         let t = progress.clamped(to: 0...1)
         return self + (to - self) * t
     }
+
+    /// Rounds the value to the nearest multiple of the given increment.
+    ///
+    /// - Parameter increment: The increment to snap to. Negative values are treated as positive.
+    /// - Returns: The value rounded to the nearest multiple of `increment`.
+    ///
+    /// # Usage
+    /// ```
+    /// let value: CGFloat = 13.7
+    /// let snapped = value.snapped(toIncrement: 0.5) // 13.5
+    /// ```
+    func snapped(toIncrement increment: CGFloat) -> CGFloat {
+        let step = Swift.abs(increment)
+        guard step > 0, step.isFinite else { return self }
+        return (self / step).rounded() * step
+    }
 }
