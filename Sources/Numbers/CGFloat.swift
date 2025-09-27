@@ -117,4 +117,18 @@ extension CGFloat {
         guard step > 0, step.isFinite else { return self }
         return (self / step).rounded() * step
     }
+
+
+    /// Returns the absolute distance between this value and another value.
+    ///
+    /// - Parameter other: The other value.
+    /// - Returns: `abs(self - other)`.
+    ///
+    /// # Usage
+    /// ```
+    /// 10.0.absoluteDistance(to: 6.5) // 3.5
+    /// ```
+    func absoluteDistance(to other: CGFloat) -> CGFloat {
+        return Swift.abs(self - other)
+    }
 }
