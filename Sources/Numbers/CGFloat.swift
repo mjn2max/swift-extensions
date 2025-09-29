@@ -131,4 +131,28 @@ extension CGFloat {
     func absoluteDistance(to other: CGFloat) -> CGFloat {
         return Swift.abs(self - other)
     }
+
+
+    /// Checks if two `CGFloat` values are approximately equal within a given tolerance.
+    ///
+    /// - Parameters:
+    ///   - other: The value to compare against.
+    ///   - tolerance: The relative tolerance. Defaults to a small multiple of `ulpOfOne`.
+    /// - Returns: `true` if the values are approximately equal.
+    ///
+    /// # Notes
+    /// Uses a relative comparison scaled by the magnitude of the values.
+    ///
+    /// # Usage
+    /// ```
+    /// let a: CGFloat = 1.0000001
+    /// let b: CGFloat = 1.0
+    /// a.isApproximatelyEqual(to: b, tolerance: 1e-6) // true
+    /// ```
+    func isApproximatelyEqual(to other: CGFloat, tolerance: CGFloat = CGFloat.ulpOfOne * 4) -> Bool {
+        if self == other { return true }
+        let magnitude = Swift.max(Swift.abs(self), Swift.abs(other))
+        let scale = Swift.max(CGFloat(1), magnitude)
+        return Swift.abs(self - other) <= tolerance * scale
+    }
 }
