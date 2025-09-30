@@ -155,4 +155,25 @@ extension CGFloat {
         let scale = Swift.max(CGFloat(1), magnitude)
         return Swift.abs(self - other) <= tolerance * scale
     }
+
+
+    /// Normalizes the value within a range, producing a number typically in `[0, 1]`.
+    ///
+    /// - Parameters:
+    ///   - range: The source range that `self` is in.
+    ///   - clamp: If `true`, clamps the result to `[0, 1]`.
+    /// - Returns: The normalized value.
+    ///
+    /// # Usage
+    /// ```
+    /// let value: CGFloat = 75
+    /// let t = value.normalized(in: 50...150) // 0.25
+    /// ```
+    func normalized(in range: ClosedRange<CGFloat>, clamp: Bool = false) -> CGFloat {
+        let minV = range.lowerBound
+        let maxV = range.upperBound
+        guard maxV != minV else { return 0 }
+        let t = (self - minV) / (maxV - minV)
+        return clamp ? t.clamped(to: 0...1) : t
+    }
 }
