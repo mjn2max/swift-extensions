@@ -176,4 +176,28 @@ extension CGFloat {
         let t = (self - minV) / (maxV - minV)
         return clamp ? t.clamped(to: 0...1) : t
     }
+
+
+    /// Maps the value from a source range to a target range.
+    ///
+    /// - Parameters:
+    ///   - source: The source range.
+    ///   - target: The target range.
+    ///   - clamp: If `true`, clamps `self` to `source` before mapping.
+    /// - Returns: The mapped value.
+    ///
+    /// # Usage
+    /// ```
+    /// let x: CGFloat = 0.25
+    /// let y = x.mapped(from: 0...1, to: 10...20) // 12.5
+    /// ```
+    func mapped(from source: ClosedRange<CGFloat>, to target: ClosedRange<CGFloat>, clamp: Bool = false) -> CGFloat {
+        guard source.upperBound != source.lowerBound else { return target.lowerBound }
+        var value = self
+        if clamp {
+            value = value.clamped(to: source)
+        }
+        let t = (value - source.lowerBound) / (source.upperBound - source.lowerBound)
+        return target.lowerBound + t * (target.upperBound - target.lowerBound)
+    }
 }
