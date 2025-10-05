@@ -200,4 +200,19 @@ extension CGFloat {
         let t = (value - source.lowerBound) / (source.upperBound - source.lowerBound)
         return target.lowerBound + t * (target.upperBound - target.lowerBound)
     }
+
+
+    /// Mutating variant of `clamped(to:)` that clamps `self` in place.
+    ///
+    /// - Parameter limits: The range to clamp to.
+    ///
+    /// # Usage
+    /// ```
+    /// var x: CGFloat = 15
+    /// x.clamp(to: 0...10)
+    /// // x == 10
+    /// ```
+    mutating func clamp(to limits: ClosedRange<CGFloat>) {
+        self = self.clamped(to: limits)
+    }
 }
