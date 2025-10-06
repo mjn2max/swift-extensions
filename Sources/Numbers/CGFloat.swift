@@ -215,4 +215,19 @@ extension CGFloat {
     mutating func clamp(to limits: ClosedRange<CGFloat>) {
         self = self.clamped(to: limits)
     }
+
+
+    /// Returns the fractional part of the value in the range `[0, 1)`.
+    ///
+    /// # Notes
+    /// For negative numbers, this returns `1 - fractionalPartOfMagnitude` because it uses `floor`.
+    ///
+    /// # Usage
+    /// ```
+    /// (3.75 as CGFloat).fractionalPart // 0.75
+    /// (-3.75 as CGFloat).fractionalPart // 0.25
+    /// ```
+    var fractionalPart: CGFloat {
+        return self - floor(self)
+    }
 }
