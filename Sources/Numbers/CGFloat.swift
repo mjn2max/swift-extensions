@@ -230,4 +230,10 @@ extension CGFloat {
     var fractionalPart: CGFloat {
         return self - floor(self)
     }
+
+
+    /// Returns the value clamped to the unit interval `[0, 1]`.
+    var clamped01: CGFloat {
+        return self.clamped(to: 0...1)
+    }
 }
