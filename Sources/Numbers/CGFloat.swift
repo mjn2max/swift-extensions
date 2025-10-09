@@ -236,4 +236,26 @@ extension CGFloat {
     var clamped01: CGFloat {
         return self.clamped(to: 0...1)
     }
+
+
+    /// Returns whether the value lies between two bounds.
+    ///
+    /// - Parameters:
+    ///   - a: One bound.
+    ///   - b: The other bound.
+    ///   - inclusive: If `true`, the endpoints are considered inside the range.
+    /// - Returns: `true` if the value lies between `a` and `b`.
+    ///
+    /// # Usage
+    /// ```
+    /// (5 as CGFloat).isBetween(0, 10) // true
+    /// (10 as CGFloat).isBetween(0, 10, inclusive: false) // false
+    /// ```
+    func isBetween(_ a: CGFloat, _ b: CGFloat, inclusive: Bool = true) -> Bool {
+        let lower = Swift.min(a, b)
+        let upper = Swift.max(a, b)
+        return inclusive ? (self >= lower && self <= upper) : (self > lower && self < upper)
+    }
+    
 }
+
