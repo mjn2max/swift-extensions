@@ -26,4 +26,17 @@ extension Date {
     var isWeekend: Bool {
         Calendar.current.isDateInWeekend(self)
     }
+    
+    /// Indicates whether the date is today.
+    ///
+    /// - Returns: `true` if the date is today, otherwise `false`.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let check = now.isToday
+    /// ```
+    var isToday: Bool {
+        Calendar.current.isDateInToday(self)
+    }
 }
