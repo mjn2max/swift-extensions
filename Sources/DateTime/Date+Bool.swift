@@ -65,4 +65,17 @@ extension Date {
     var isTomorrow: Bool {
         Calendar.current.isDateInTomorrow(self)
     }
+
+    /// Indicates whether the date is in the past compared to the current time.
+    ///
+    /// - Returns: `true` if the date is earlier than now, otherwise `false`.
+    ///
+    /// # Usage
+    /// ```
+    /// let date = Date().addingTimeInterval(-3600)
+    /// let check = date.isPast
+    /// ```
+    var isPast: Bool {
+        self < Date()
+    }
 }
