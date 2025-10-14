@@ -52,4 +52,17 @@ extension Date {
     var isYesterday: Bool {
         Calendar.current.isDateInYesterday(self)
     }
+
+    /// Indicates whether the date is tomorrow.
+    ///
+    /// - Returns: `true` if the date is tomorrow, otherwise `false`.
+    ///
+    /// # Usage
+    /// ```
+    /// let date = Calendar.current.date(byAdding: .day, value: 1, to: Date())!
+    /// let check = date.isTomorrow
+    /// ```
+    var isTomorrow: Bool {
+        Calendar.current.isDateInTomorrow(self)
+    }
 }
