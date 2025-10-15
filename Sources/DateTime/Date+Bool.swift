@@ -78,4 +78,17 @@ extension Date {
     var isPast: Bool {
         self < Date()
     }
+
+    /// Indicates whether the date is in the future compared to the current time.
+    ///
+    /// - Returns: `true` if the date is later than now, otherwise `false`.
+    ///
+    /// # Usage
+    /// ```
+    /// let date = Date().addingTimeInterval(3600)
+    /// let check = date.isFuture
+    /// ```
+    var isFuture: Bool {
+        self > Date()
+    }
 }
