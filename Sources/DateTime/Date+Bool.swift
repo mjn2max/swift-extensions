@@ -91,4 +91,19 @@ extension Date {
     var isFuture: Bool {
         self > Date()
     }
+
+    /// Indicates whether the date is within the current year.
+    ///
+    /// - Returns: `true` if the date falls within the same year as today, otherwise `false`.
+    ///
+    /// # Usage
+    /// ```
+    /// let date = Date()
+    /// let check = date.isThisYear
+    /// ```
+    var isThisYear: Bool {
+        let calendar = Calendar.current
+        return calendar.component(.year, from: self) == calendar.component(.year, from: Date())
+    }
+
 }
