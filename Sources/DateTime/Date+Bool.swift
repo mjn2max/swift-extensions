@@ -106,4 +106,19 @@ extension Date {
         return calendar.component(.year, from: self) == calendar.component(.year, from: Date())
     }
 
+    /// Indicates whether the date is within the current month.
+    ///
+    /// - Returns: `true` if the date falls within the same month and year as today, otherwise `false`.
+    ///
+    /// # Usage
+    /// ```
+    /// let date = Date()
+    /// let check = date.isThisMonth
+    /// ```
+    var isThisMonth: Bool {
+        let calendar = Calendar.current
+        let components1 = calendar.dateComponents([.year, .month], from: self)
+        let components2 = calendar.dateComponents([.year, .month], from: Date())
+        return components1.year == components2.year && components1.month == components2.month
+    }
 }
