@@ -121,4 +121,19 @@ extension Date {
         let components2 = calendar.dateComponents([.year, .month], from: Date())
         return components1.year == components2.year && components1.month == components2.month
     }
+
+    /// Indicates whether the date is within the current week.
+    ///
+    /// - Returns: `true` if the date falls within the same week and year as today, otherwise `false`.
+    ///
+    /// # Usage
+    /// ```
+    /// let date = Date()
+    /// let check = date.isThisWeek
+    /// ```
+    var isThisWeek: Bool {
+        let calendar = Calendar.current
+        return calendar.component(.weekOfYear, from: self) == calendar.component(.weekOfYear, from: Date())
+            && calendar.component(.yearForWeekOfYear, from: self) == calendar.component(.yearForWeekOfYear, from: Date())
+    }
 }
