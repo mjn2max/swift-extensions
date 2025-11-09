@@ -11,7 +11,7 @@
 
 import Foundation
 
-// MARK: - Date Extensions
+// MARK: - Date Extensions - Day
 
 public extension Date {
     /// Returns a new `Date` with the time set to midnight (00:00:00) of the same day, in the current calendar.
@@ -26,8 +26,7 @@ public extension Date {
     var startOfDay: Date {
         Calendar.current.startOfDay(for: self)
     }
-
-
+    
     /// Returns a new `Date` representing the end of the day (23:59:59) in the current calendar.
     ///
     /// - Returns: A new `Date` representing the last moment of the same day.
@@ -40,6 +39,19 @@ public extension Date {
     var endOfDay: Date? {
         let components = DateComponents(day: 1, second: -1)
         return Calendar.current.date(byAdding: components, to: startOfDay)
+    }
+    
+    /// Returns a new `Date` representing yesterday at the same clock time in the current calendar.
+    ///
+    /// - Returns: A new `Date` one day before the receiver, preserving the time of day.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.yesterday
+    /// ```
+    var yesterday: Date {
+        Calendar.current.date(byAdding: .day, value: -1, to: self) ?? self
     }
 
 
@@ -57,8 +69,7 @@ public extension Date {
         let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
         return calendar.date(from: components)
     }
-
-
+    
     /// Returns a new `Date` representing the end of the week (23:59:59 on the last day) in the current calendar.
     ///
     /// - Returns: A `Date` for the final moment of the week (e.g., Saturday or Sunday depending on locale).
@@ -88,8 +99,7 @@ public extension Date {
         let components = Calendar.current.dateComponents([.year, .month], from: self)
         return Calendar.current.date(from: components)
     }
-
-
+    
     /// Returns a new `Date` representing the end of the month (23:59:59 on the last day) in the current calendar.
     ///
     /// - Returns: A new `Date` representing the final moment of the month.
@@ -120,7 +130,6 @@ public extension Date {
         let components = Calendar.current.dateComponents([.year], from: self)
         return Calendar.current.date(from: components)
     }
-
 
     /// Returns a new `Date` representing the end of the year (December 31st at 23:59:59) in the current calendar.
     ///
