@@ -53,6 +53,19 @@ public extension Date {
     var yesterday: Date {
         Calendar.current.date(byAdding: .day, value: -1, to: self) ?? self
     }
+    
+    /// Returns a new `Date` representing tomorrow at the same clock time in the current calendar.
+    ///
+    /// - Returns: A new `Date` one day after the receiver, preserving the time of day.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.tomorrow
+    /// ```
+    var tomorrow: Date {
+        Calendar.current.date(byAdding: .day, value: 1, to: self) ?? self
+    }
 
 
     /// Returns a new `Date` representing the start of the week in the current calendar.
