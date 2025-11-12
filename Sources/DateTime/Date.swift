@@ -67,6 +67,18 @@ public extension Date {
         Calendar.current.date(byAdding: .day, value: 1, to: self) ?? self
     }
 
+    /// Returns a new `Date` representing the start of the next day (00:00:00) in the current calendar.
+    ///
+    /// - Returns: A new `Date` at midnight of the day after the receiver.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.startOfNextDay
+    /// ```
+    var startOfNextDay: Date {
+        Calendar.current.date(byAdding: .day, value: 1, to: startOfDay) ?? startOfDay
+    }
 
     /// Returns a new `Date` representing the start of the week in the current calendar.
     ///
