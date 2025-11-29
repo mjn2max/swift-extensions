@@ -107,6 +107,19 @@ public extension Date {
         let start = calendar.startOfDay(for: self)
         return calendar.date(byAdding: DateComponents(hour: 12), to: start) ?? self
     }
+    
+    /// Returns a new `Date` representing the same clock time on the next day in the current calendar.
+    ///
+    /// - Returns: A new `Date` one day after the receiver, preserving the time of day.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.sameTimeNextDay
+    /// ```
+    var sameTimeNextDay: Date {
+        Calendar.current.date(byAdding: .day, value: 1, to: self) ?? self
+    }
     /// Returns a new `Date` representing the start of the week in the current calendar.
     ///
     /// - Returns: A `Date` for the beginning of the week (e.g., Sunday or Monday depending on locale).
