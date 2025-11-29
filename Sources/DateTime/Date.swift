@@ -92,6 +92,21 @@ public extension Date {
     var startOfPreviousDay: Date {
         Calendar.current.date(byAdding: .day, value: -1, to: startOfDay) ?? startOfDay
     }
+
+    /// Returns a new `Date` representing 12:00 (noon) on the same day in the current calendar.
+    ///
+    /// - Returns: A new `Date` at noon of the receiver's day.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.noon
+    /// ```
+    var noon: Date {
+        let calendar = Calendar.current
+        let start = calendar.startOfDay(for: self)
+        return calendar.date(byAdding: DateComponents(hour: 12), to: start) ?? self
+    }
     /// Returns a new `Date` representing the start of the week in the current calendar.
     ///
     /// - Returns: A `Date` for the beginning of the week (e.g., Sunday or Monday depending on locale).
