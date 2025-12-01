@@ -134,6 +134,10 @@ public extension Date {
         Calendar.current.date(byAdding: .day, value: -1, to: self) ?? self
     }
 }
+
+// MARK: - Date Extensions - Week
+
+public extension Date {
     /// Returns a new `Date` representing the start of the week in the current calendar.
     ///
     /// - Returns: A `Date` for the beginning of the week (e.g., Sunday or Monday depending on locale).
@@ -163,6 +167,22 @@ public extension Date {
         let components = DateComponents(day: 7, second: -1)
         return Calendar.current.date(byAdding: components, to: start)
     }
+    
+    /// Returns a new `Date` representing the start of the next week in the current calendar.
+    ///
+    /// - Returns: A `Date` at the beginning of the week following the receiver's week.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.startOfNextWeek
+    /// ```
+    var startOfNextWeek: Date? {
+        guard let start = startOfWeek else { return nil }
+        return Calendar.current.date(byAdding: .weekOfYear, value: 1, to: start)
+    }
+
+}
 
 
     /// Returns a new `Date` representing the start of the month (00:00:00 on the first day) in the current calendar.
