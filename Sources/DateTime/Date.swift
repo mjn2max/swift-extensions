@@ -197,7 +197,9 @@ public extension Date {
     }
 }
 
+// MARK: - Date Extensions - Month
 
+public extension Date {
     /// Returns a new `Date` representing the start of the month (00:00:00 on the first day) in the current calendar.
     ///
     /// - Returns: A new `Date` representing the beginning of the month.
@@ -227,6 +229,21 @@ public extension Date {
         }
         return Calendar.current.date(byAdding: DateComponents(second: -1), to: Calendar.current.startOfDay(for: startOfNextMonth))
     }
+    
+    /// Returns a new `Date` representing the start of the next month (00:00:00 on the first day) in the current calendar.
+    ///
+    /// - Returns: A `Date` at the beginning of the month following the receiver's month.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.startOfNextMonth
+    /// ```
+    var startOfNextMonth: Date? {
+        guard let start = startOfMonth else { return nil }
+        return Calendar.current.date(byAdding: .month, value: 1, to: start)
+    }
+}
 
 
     /// Returns the start of the year (January 1st at 00:00:00) for this date.
