@@ -182,6 +182,19 @@ public extension Date {
         return Calendar.current.date(byAdding: .weekOfYear, value: 1, to: start)
     }
 
+    /// Returns a new `Date` representing the start of the previous week in the current calendar.
+    ///
+    /// - Returns: A `Date` at the beginning of the week preceding the receiver's week.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.startOfPreviousWeek
+    /// ```
+    var startOfPreviousWeek: Date? {
+        guard let start = startOfWeek else { return nil }
+        return Calendar.current.date(byAdding: .weekOfYear, value: -1, to: start)
+    }
 }
 
 
