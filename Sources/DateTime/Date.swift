@@ -243,6 +243,20 @@ public extension Date {
         guard let start = startOfMonth else { return nil }
         return Calendar.current.date(byAdding: .month, value: 1, to: start)
     }
+
+    /// Returns a new `Date` representing the start of the previous month (00:00:00 on the first day) in the current calendar.
+    ///
+    /// - Returns: A `Date` at the beginning of the month preceding the receiver's month.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.startOfPreviousMonth
+    /// ```
+    var startOfPreviousMonth: Date? {
+        guard let start = startOfMonth else { return nil }
+        return Calendar.current.date(byAdding: .month, value: -1, to: start)
+    }
 }
 
 
