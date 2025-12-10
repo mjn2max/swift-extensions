@@ -257,6 +257,23 @@ public extension Date {
         guard let start = startOfMonth else { return nil }
         return Calendar.current.date(byAdding: .month, value: -1, to: start)
     }
+    
+    /// Returns a new `Date` representing the middle of the month (15th at 12:00) in the current calendar.
+    ///
+    /// - Returns: A `Date` near the middle of the receiver's month for convenience.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.middleOfMonth
+    /// ```
+    var middleOfMonth: Date? {
+        guard let start = startOfMonth else { return nil }
+        var comps = DateComponents()
+        comps.day = 14 // add 14 days to reach the 15th
+        comps.hour = 12
+        return Calendar.current.date(byAdding: comps, to: start)
+    }
 }
 
 
