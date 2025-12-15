@@ -308,6 +308,21 @@ public extension Date {
         }
         return Calendar.current.date(byAdding: DateComponents(second: -1), to: Calendar.current.startOfDay(for: startOfNextYear))
     }
+
+    /// Returns a new `Date` representing the start of the next year (January 1st at 00:00:00) in the current calendar.
+    ///
+    /// - Returns: A `Date` at the beginning of the year following the receiver's year.
+    ///
+    /// # Usage
+    /// ```
+    /// let now = Date()
+    /// let value = now.startOfNextYear
+    /// ```
+    var startOfNextYear: Date? {
+        guard let start = startOfYear else { return nil }
+        return Calendar.current.date(byAdding: .year, value: 1, to: start)
+    }
+
     /// Returns a new `Date` representing the start of the previous year (January 1st at 00:00:00) in the current calendar.
     ///
     /// - Returns: A `Date` at the beginning of the year preceding the receiver's year.
